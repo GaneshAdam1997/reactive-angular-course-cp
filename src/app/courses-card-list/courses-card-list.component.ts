@@ -7,7 +7,8 @@ import { filter, map, tap } from 'rxjs/operators';
 @Component({
   selector: 'courses-card-list',
   templateUrl: './courses-card-list.component.html',
-  styleUrl: './courses-card-list.component.scss'
+  styleUrl: './courses-card-list.component.scss',
+  standalone: false
 })
 export class CoursesCardListComponent {
 
