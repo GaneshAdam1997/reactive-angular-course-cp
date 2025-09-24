@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Message} from '../model/message';
-import {tap} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { MessagesService } from './messages.service';
 
 @Component({
-    selector: 'messages',
-    templateUrl: './messages.component.html',
-    styleUrls: ['./messages.component.css'],
-    standalone: false
+  selector: 'messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css'],
+  standalone: false
 })
 export class MessagesComponent implements OnInit {
 
-  showMessages:boolean = false;
+  showMessages: boolean = false;
 
-  errors$:Observable<string[]>;
+  errors$: Observable<string[]>;
 
 
-  constructor(private messageService:MessagesService) {
+  constructor(private messageService: MessagesService) {
 
   }
 
   ngOnInit() {
     console.log("initalized messages component");
-    this.errors$ =  this.messageService.errors$.pipe(
+    this.errors$ = this.messageService.errors$.pipe(
       tap(() => {
         console.log("Message Service side effect");
         this.showMessages = true
